@@ -133,12 +133,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ASGI_APPLICATION = 'core.routing.application'
-redis_host = os.environ.get('REDIS_HOST', 'redis://red-c8b77ov9re0qhiqadr50')
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [(redis_host,6379)],
+            "hosts": ['redis://red-c8b77ov9re0qhiqadr50:6379'],
         },
     },
 }
